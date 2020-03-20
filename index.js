@@ -1,13 +1,22 @@
 const express = require("express");
+const mongoose = require("mongoose");
+const keys = require("./config/keys");
+require("./models/User");
+require("./services/passport");
+
+mongoose.connect(keys.mongoURI);
+
 const app = express();
 
-app.get("/", (req, res) => {
-  res.send({ hi: "there" });
-});
+require("./routes/authRoutes")(app);
 
-const PORT = process.env.PORT || 5000;
+const PORT = process.env.PORT || 8000;
 app.listen(PORT);
 
 //heroku links
 // https://mysterious-meadow-04344.herokuapp.com/ -identifies the name of your application to heroku
 // https://git.heroku.com/mysterious-meadow-04344.git - deployment target. git repo that we can push our locak server to
+
+//mongo db user credentials
+//username - p00gz
+//pass- SaosvfzeyX30sHH7
