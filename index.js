@@ -6,7 +6,7 @@ app.get("/", (req, res) => {
 });
 
 const PORT = process.env.PORT || 5000;
-app.listen(5000);
+app.listen(PORT);
 
 //heroku links
 // https://mysterious-meadow-04344.herokuapp.com/ -identifies the name of your application to heroku
